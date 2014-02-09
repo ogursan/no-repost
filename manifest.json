@@ -1,0 +1,36 @@
+{
+	"manifest_version": 2,
+	"author": "Andrey Shubin",
+	"name": "VK No Repost",
+	"version": "1.0",
+	"description": "Simple extension cutting all reposts from the feed on vk.com",
+	"icons": {
+		"16": "i/16.png",
+		"48": "i/48.png",
+		"128": "i/128.png"
+	},
+
+	"page_action": {
+		"default_icon": {
+			"19": "i/48.png",
+			"38": "i/48.png"
+		},
+		"default_title": "No Repost"
+	},
+
+	"background": {
+		"scripts": ["js/background.js"]
+	},
+
+	"content_scripts": [{
+		"matches": [
+			"https://vk.com/feed",
+			"http://vk.com/feed",
+			"http://vk.com/al_feed.php",
+			"https://vk.com/al_feed.php"
+		],
+		"js": ["js/jquery.js", "js/page.js"]
+	}],
+
+	"permissions": ["tabs", "http://vk.com/"]
+}
